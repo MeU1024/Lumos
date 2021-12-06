@@ -1,16 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:lumos="http://schemas.android.com/apk/res/com.example.lumos"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.info.InfoFragment">
+    android:textColor="@color/white"
+    android:background="@drawable/sky">
 
-    <TextView
-        android:id="@+id/text_info"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_name_img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="This is info" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/avater" />
+
+            <TextView
+                android:id="@+id/user_nickname"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="UserName"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--TODO:按钮事件绑定和id修改-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_cardview1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="9dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_name_img"
+        app:cardBackgroundColor="@color/lightwhite">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.lumos.ui.info.UserBtnView
+                android:id="@+id/user_info"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="userPageClick"
+                lumos:icon_pach="icon_health_info.png"
+                lumos:user_titles_components_title="个人成就"></com.example.lumos.ui.info.UserBtnView>
+
+            <com.example.lumos.ui.info.UserBtnView
+                android:id="@+id/health_info"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="userPageClick"
+                lumos:icon_pach="icon_health_info.png"
+                lumos:user_titles_components_title="数据统计"></com.example.lumos.ui.info.UserBtnView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_cardview2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="9dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_cardview1"
+        app:cardBackgroundColor="@color/lightwhite">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.lumos.ui.info.UserBtnView
+                android:id="@+id/orders"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="userPageClick"
+                lumos:user_titles_components_title="帮助"></com.example.lumos.ui.info.UserBtnView>
+
+            <com.example.lumos.ui.info.UserBtnView
+                android:id="@+id/collections"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="userPageClick"
+                lumos:user_titles_components_title="分享"></com.example.lumos.ui.info.UserBtnView>
+
+            <com.example.lumos.ui.info.UserBtnView
+                android:id="@+id/helps"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="userPageClick"
+                lumos:user_titles_components_title="关于"></com.example.lumos.ui.info.UserBtnView>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

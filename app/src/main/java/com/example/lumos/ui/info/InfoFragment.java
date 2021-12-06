@@ -57,15 +57,15 @@ public class InfoFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_info, container, false);
 
-        final TextView textView = root.findViewById(R.id.text_info);
+        //final TextView textView = root.findViewById(R.id.text_info);
         //下面代码中observe()方法里的this，可能在IDE里是有红色波浪线的，但是却是可以编译的。
         //也可以直接把this改成getViewLifecycleOwner() 就不会报错了
-        infoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        infoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 
