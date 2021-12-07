@@ -21,5 +21,8 @@ public class InfoViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
+    public LiveData<Boolean> getStatus() {
+        return loginStatus;
+    }
 
 }

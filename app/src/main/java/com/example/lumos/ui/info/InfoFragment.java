@@ -3,6 +3,7 @@ package com.example.lumos.ui.info;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.SharedPreferences;
+import android.content.Context;
 import com.example.lumos.R;
 import com.example.lumos.ui.home.HomeViewModel;
 
@@ -58,22 +61,26 @@ public class InfoFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_info, container, false);
 
-        //是否显示登录按钮
-        if (false) {    // 对管理员显示审核评论入口
-            View loginView = root.findViewById(R.id.user_cardview3);
-            loginView.setVisibility(View.VISIBLE);
+        Boolean LoginStatus = false;
+        SharedPreferences sp=getActivity().getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
+        LoginStatus = sp.getBoolean("isLogin" , false);
 
-            View exitView = root.findViewById(R.id.user_cardview4);
-            exitView.setVisibility(View.INVISIBLE);
-
-        }
-        else{
+        if (LoginStatus) {
+            //已登录
             View loginView = root.findViewById(R.id.user_cardview3);
             loginView.setVisibility(View.INVISIBLE);
 
             View exitView = root.findViewById(R.id.user_cardview4);
             exitView.setVisibility(View.VISIBLE);
 
+        }
+        else{
+            //未登录
+            View loginView = root.findViewById(R.id.user_cardview3);
+            loginView.setVisibility(View.VISIBLE);
+
+            View exitView = root.findViewById(R.id.user_cardview4);
+            exitView.setVisibility(View.INVISIBLE);
         }
 
         //final TextView textView = root.findViewById(R.id.text_info);

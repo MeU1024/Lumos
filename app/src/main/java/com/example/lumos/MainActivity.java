@@ -1,6 +1,7 @@
 package com.example.lumos;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,6 +14,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.lumos.databinding.ActivityMainBinding;
+
+import com.example.lumos.ui.info.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,29 +42,33 @@ public class MainActivity extends AppCompatActivity {
     public void userPageClick(View v){
         Intent intent = null;
         switch (v.getId()){
-            case R.id.info_anchievement:
-                intent = new Intent(MainActivity.this, AnchievementActivity.class);
-                break;
-            case R.id.info_statistics:
-                intent = new Intent(MainActivity.this, StatisticsActivity.class);
-                break;
-            case R.id.info_help:
-                intent = new Intent(MainActivity.this, HelpActivity.class);
-                break;
-            case R.id.info_share:
-                intent = new Intent(MainActivity.this,ShareActivity.class);
-                break;
-            case R.id.info_about:
-                intent = new Intent(MainActivity.this, AboutActivity.class);
-                break;
+//            case R.id.info_anchievement:
+//                intent = new Intent(MainActivity.this, AnchievementActivity.class);
+//                break;
+//            case R.id.info_statistics:
+//                intent = new Intent(MainActivity.this, StatisticsActivity.class);
+//                break;
+//            case R.id.info_help:
+//                intent = new Intent(MainActivity.this, HelpActivity.class);
+//                break;
+//            case R.id.info_share:
+//                intent = new Intent(MainActivity.this,ShareActivity.class);
+//                break;
+//            case R.id.info_about:
+//                intent = new Intent(MainActivity.this, AboutActivity.class);
+//                break;
             case R.id.info_login:
                 intent = new Intent(MainActivity.this, LoginActivity.class);
                 break;
-            case R.id.info_register:
-                intent = new Intent(MainActivity.this, RegisterActivity.class);
-                break;
+//            case R.id.info_register:
+//                intent = new Intent(MainActivity.this, RegisterActivity.class);
+//                break;
             case R.id.info_exit:
-                intent = new Intent(MainActivity.this, ExitActivity.class);
+                SharedPreferences sp=getSharedPreferences("loginInfo", MODE_PRIVATE);
+                SharedPreferences.Editor editor=sp.edit();
+                editor.putBoolean("isLogin", false);
+                editor.commit();
+                intent = new Intent(MainActivity.this, LoginActivity.class);
                 break;
         }
         if(intent != null)
