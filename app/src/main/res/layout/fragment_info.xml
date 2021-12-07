@@ -70,7 +70,7 @@
             <com.example.lumos.ui.info.UserBtnView
                 android:id="@+id/info_anchievement"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="55dp"
                 android:onClick="userPageClick"
                 lumos:icon_pach="icon_health_info.png"
                 lumos:user_titles_components_title="Anchievement"></com.example.lumos.ui.info.UserBtnView>
@@ -78,7 +78,7 @@
             <com.example.lumos.ui.info.UserBtnView
                 android:id="@+id/info_statistics"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="55dp"
                 android:onClick="userPageClick"
                 lumos:icon_pach="icon_health_info.png"
                 lumos:user_titles_components_title="Statistics"></com.example.lumos.ui.info.UserBtnView>
@@ -113,21 +113,21 @@
             <com.example.lumos.ui.info.UserBtnView
                 android:id="@+id/info_help"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="55dp"
                 android:onClick="userPageClick"
                 lumos:user_titles_components_title="Help"></com.example.lumos.ui.info.UserBtnView>
 
             <com.example.lumos.ui.info.UserBtnView
                 android:id="@+id/info_share"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="55dp"
                 android:onClick="userPageClick"
                 lumos:user_titles_components_title="Share"></com.example.lumos.ui.info.UserBtnView>
 
             <com.example.lumos.ui.info.UserBtnView
                 android:id="@+id/info_about"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="55dp"
                 android:onClick="userPageClick"
                 lumos:user_titles_components_title="About"></com.example.lumos.ui.info.UserBtnView>
         </LinearLayout>
@@ -160,14 +160,14 @@
             <com.example.lumos.ui.info.UserBtnView
                 android:id="@+id/info_login"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="55dp"
                 android:onClick="userPageClick"
                 lumos:user_titles_components_title="Login"></com.example.lumos.ui.info.UserBtnView>
 
             <com.example.lumos.ui.info.UserBtnView
                 android:id="@+id/info_register"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="55dp"
                 android:onClick="userPageClick"
                 lumos:user_titles_components_title="Register"></com.example.lumos.ui.info.UserBtnView>
 
@@ -202,7 +202,7 @@
             <com.example.lumos.ui.info.UserBtnView
                 android:id="@+id/info_exit"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="55dp"
                 android:onClick="userPageClick"
                 lumos:user_titles_components_title="Exit"></com.example.lumos.ui.info.UserBtnView>
 

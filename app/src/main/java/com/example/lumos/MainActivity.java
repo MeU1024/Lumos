@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.lumos.ui.info.register.RegisterActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,19 +61,21 @@ public class MainActivity extends AppCompatActivity {
             case R.id.info_login:
                 intent = new Intent(MainActivity.this, LoginActivity.class);
                 break;
-//            case R.id.info_register:
-//                intent = new Intent(MainActivity.this, RegisterActivity.class);
-//                break;
+            case R.id.info_register:
+                intent = new Intent(MainActivity.this, RegisterActivity.class);
+                break;
             case R.id.info_exit:
                 SharedPreferences sp=getSharedPreferences("loginInfo", MODE_PRIVATE);
                 SharedPreferences.Editor editor=sp.edit();
                 editor.putBoolean("isLogin", false);
                 editor.commit();
-                intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent = new Intent(MainActivity.this, MainActivity.class);
+                MainActivity.this.finish();
                 break;
         }
         if(intent != null)
             startActivity(intent);
+
     }
 
 }

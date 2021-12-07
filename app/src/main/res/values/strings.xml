@@ -5,8 +5,10 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_info">Info</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">Register</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
+    <string name="prompt_password_again">Password Again</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
