@@ -1,6 +1,8 @@
 package com.example.lumos;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,6 +34,38 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+    }
+
+    public void userPageClick(View v){
+        Intent intent = null;
+        switch (v.getId()){
+            case R.id.info_anchievement:
+                intent = new Intent(MainActivity.this, AnchievementActivity.class);
+                break;
+            case R.id.info_statistics:
+                intent = new Intent(MainActivity.this, StatisticsActivity.class);
+                break;
+            case R.id.info_help:
+                intent = new Intent(MainActivity.this, HelpActivity.class);
+                break;
+            case R.id.info_share:
+                intent = new Intent(MainActivity.this,ShareActivity.class);
+                break;
+            case R.id.info_about:
+                intent = new Intent(MainActivity.this, AboutActivity.class);
+                break;
+            case R.id.info_login:
+                intent = new Intent(MainActivity.this, LoginActivity.class);
+                break;
+            case R.id.info_register:
+                intent = new Intent(MainActivity.this, RegisterActivity.class);
+                break;
+            case R.id.info_exit:
+                intent = new Intent(MainActivity.this, ExitActivity.class);
+                break;
+        }
+        if(intent != null)
+            startActivity(intent);
     }
 
 }

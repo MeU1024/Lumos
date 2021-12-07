@@ -68,20 +68,20 @@
             android:orientation="vertical">
 
             <com.example.lumos.ui.info.UserBtnView
-                android:id="@+id/user_info"
+                android:id="@+id/info_anchievement"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:onClick="userPageClick"
                 lumos:icon_pach="icon_health_info.png"
-                lumos:user_titles_components_title="个人成就"></com.example.lumos.ui.info.UserBtnView>
+                lumos:user_titles_components_title="Anchievement"></com.example.lumos.ui.info.UserBtnView>
 
             <com.example.lumos.ui.info.UserBtnView
-                android:id="@+id/health_info"
+                android:id="@+id/info_statistics"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:onClick="userPageClick"
                 lumos:icon_pach="icon_health_info.png"
-                lumos:user_titles_components_title="数据统计"></com.example.lumos.ui.info.UserBtnView>
+                lumos:user_titles_components_title="Statistics"></com.example.lumos.ui.info.UserBtnView>
 
         </LinearLayout>
 
@@ -111,25 +111,25 @@
             android:orientation="vertical">
 
             <com.example.lumos.ui.info.UserBtnView
-                android:id="@+id/orders"
+                android:id="@+id/info_help"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:onClick="userPageClick"
-                lumos:user_titles_components_title="帮助"></com.example.lumos.ui.info.UserBtnView>
+                lumos:user_titles_components_title="Help"></com.example.lumos.ui.info.UserBtnView>
 
             <com.example.lumos.ui.info.UserBtnView
-                android:id="@+id/collections"
+                android:id="@+id/info_share"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:onClick="userPageClick"
-                lumos:user_titles_components_title="分享"></com.example.lumos.ui.info.UserBtnView>
+                lumos:user_titles_components_title="Share"></com.example.lumos.ui.info.UserBtnView>
 
             <com.example.lumos.ui.info.UserBtnView
-                android:id="@+id/helps"
+                android:id="@+id/info_about"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:onClick="userPageClick"
-                lumos:user_titles_components_title="关于"></com.example.lumos.ui.info.UserBtnView>
+                lumos:user_titles_components_title="About"></com.example.lumos.ui.info.UserBtnView>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -158,14 +158,14 @@
             android:orientation="vertical">
 
             <com.example.lumos.ui.info.UserBtnView
-                android:id="@+id/login"
+                android:id="@+id/info_login"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:onClick="userPageClick"
                 lumos:user_titles_components_title="Login"></com.example.lumos.ui.info.UserBtnView>
 
             <com.example.lumos.ui.info.UserBtnView
-                android:id="@+id/register"
+                android:id="@+id/info_register"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:onClick="userPageClick"
@@ -200,7 +200,7 @@
             android:orientation="vertical">
 
             <com.example.lumos.ui.info.UserBtnView
-                android:id="@+id/exit"
+                android:id="@+id/info_exit"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:onClick="userPageClick"

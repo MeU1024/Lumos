@@ -2,6 +2,7 @@ package com.example.lumos.ui.info;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -86,6 +87,8 @@ public class InfoFragment extends Fragment {
 //        });
         return root;
     }
+
+
 
 
 }
