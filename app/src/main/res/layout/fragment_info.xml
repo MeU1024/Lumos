@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textColor="@color/white"
     android:background="@drawable/sky">
 
 
@@ -13,8 +12,8 @@
         android:id="@+id/user_name_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="35dp"
         app:cardBackgroundColor="@android:color/transparent"
         app:cardElevation="0dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,11 +46,13 @@
     <!--TODO:按钮事件绑定和id修改-->
     <androidx.cardview.widget.CardView
         android:id="@+id/user_cardview1"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="9dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:cardMaxElevation="8dp"
@@ -59,8 +60,7 @@
         app:contentPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_name_img"
-        app:cardBackgroundColor="@color/lightwhite">
+        app:layout_constraintTop_toBottomOf="@+id/user_name_img">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -89,11 +89,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/user_cardview2"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="9dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:cardMaxElevation="8dp"
@@ -101,8 +103,7 @@
         app:contentPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_cardview1"
-        app:cardBackgroundColor="@color/lightwhite">
+        app:layout_constraintTop_toBottomOf="@+id/user_cardview1">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -132,5 +133,83 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_cardview3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_cardview2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.lumos.ui.info.UserBtnView
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="userPageClick"
+                lumos:user_titles_components_title="Login"></com.example.lumos.ui.info.UserBtnView>
+
+            <com.example.lumos.ui.info.UserBtnView
+                android:id="@+id/register"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="userPageClick"
+                lumos:user_titles_components_title="Register"></com.example.lumos.ui.info.UserBtnView>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_cardview4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_cardview2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.lumos.ui.info.UserBtnView
+                android:id="@+id/exit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="userPageClick"
+                lumos:user_titles_components_title="Exit"></com.example.lumos.ui.info.UserBtnView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

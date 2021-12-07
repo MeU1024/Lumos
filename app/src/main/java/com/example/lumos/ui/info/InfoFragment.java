@@ -57,6 +57,24 @@ public class InfoFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_info, container, false);
 
+        //是否显示登录按钮
+        if (false) {    // 对管理员显示审核评论入口
+            View loginView = root.findViewById(R.id.user_cardview3);
+            loginView.setVisibility(View.VISIBLE);
+
+            View exitView = root.findViewById(R.id.user_cardview4);
+            exitView.setVisibility(View.INVISIBLE);
+
+        }
+        else{
+            View loginView = root.findViewById(R.id.user_cardview3);
+            loginView.setVisibility(View.INVISIBLE);
+
+            View exitView = root.findViewById(R.id.user_cardview4);
+            exitView.setVisibility(View.VISIBLE);
+
+        }
+
         //final TextView textView = root.findViewById(R.id.text_info);
         //下面代码中observe()方法里的this，可能在IDE里是有红色波浪线的，但是却是可以编译的。
         //也可以直接把this改成getViewLifecycleOwner() 就不会报错了

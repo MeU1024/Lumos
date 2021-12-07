@@ -20,7 +20,7 @@
         android:layout_marginLeft="65dip"
         android:layout_marginTop="18dip"
         android:text="这是标题"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18sp" />
 
 
