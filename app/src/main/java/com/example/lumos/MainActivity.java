@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
+import com.example.lumos.ui.collection.ShowActivity;
 import com.example.lumos.ui.home.NewtaskActivity;
 import com.example.lumos.ui.info.register.RegisterActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -34,11 +36,12 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,R.id.navigation_info)
+                R.id.navigation_home, R.id.navigation_collection, R.id.navigation_notifications,R.id.navigation_info)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
     }
 
     public void userPageClick(View v){
@@ -76,10 +79,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.home_newtask:
                 intent = new Intent(MainActivity.this, NewtaskActivity.class);
                 break;
-        }
-        if(intent != null)
-            startActivity(intent);
 
+//            case R.id.collection_up:
+//                intent = new Intent (MainActivity.this, ShowActivity.class);
+//                overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
+//                break;
+
+        }
+        if(intent != null ) {
+            startActivity(intent);
+        }
     }
 
     public void starClick(View v){

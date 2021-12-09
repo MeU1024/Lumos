@@ -52,6 +52,7 @@ public class NewtaskActivity extends AppCompatActivity {
                         Intent intent = new Intent(NewtaskActivity.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                        //overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                         return;
                     }
                 }
