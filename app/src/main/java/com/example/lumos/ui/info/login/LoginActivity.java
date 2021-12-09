@@ -63,7 +63,9 @@ public class LoginActivity extends AppCompatActivity {
                     data.putExtra("isLogin",true);
                     setResult(RESULT_OK,data);
                     LoginActivity.this.finish();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
 
                     return;
                 }else if((spPsw!=null&&!TextUtils.isEmpty(spPsw)&&!md5Psw.equals(spPsw))){
