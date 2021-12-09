@@ -13,7 +13,7 @@
         <activity
             android:name=".ui.home.NewtaskActivity"
             android:exported="true"
-            android:label="New Habit" />
+            android:label="New Star" />
         <activity
             android:name=".ui.info.register.RegisterActivity"
             android:exported="true"
