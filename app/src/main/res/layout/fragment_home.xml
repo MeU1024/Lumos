@@ -2,21 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:lumos="http://schemas.android.com/apk/res/com.example.lumos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/purple_sky"
     tools:context=".ui.home.HomeFragment">
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.lumos.ui.home.TodayStarView
+            android:id="@+id/Today_star1"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:onClick="userPageClick"
+            lumos:star_name="why"></com.example.lumos.ui.home.TodayStarView>
+
+
+
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/text_no_star"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="serif"
+        android:text="There is no star to light up. &#x000A; &#x000A; Enjoy your day!"
         android:textAlignment="center"
-        android:textSize="20sp"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

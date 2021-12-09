@@ -82,4 +82,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void starClick(View v){
+
+        switch (v.getId()){
+
+            case R.id.Today_star1:
+                ChangeStar();
+                break;
+
+        }
+
+
+    }
+
+    public void ChangeStar(){
+        if(true){
+
+        }
+    }
+
 }

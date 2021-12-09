@@ -4,5 +4,9 @@
         <attr name="user_titles_components_title" format="string"></attr>
         <attr name="icon_pach" format="string"></attr>
     </declare-styleable>
+    <declare-styleable name="TodayStarView">
+        <attr name="star_name" format="string"></attr>
+        <attr name="star_icon" format="string"></attr>
+    </declare-styleable>
 
 </resources>

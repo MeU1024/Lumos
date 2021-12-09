@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/sharp">
+
+    <!--TODO:修改图标颜色-->
+    <ImageView
+        android:id="@+id/cmnt_star_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/stars" />
+
+    <TextView
+        android:id="@+id/cmnt_star_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dip"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="这是标题"
+        android:textColor="@color/darkPurple"
+        android:textSize="15sp" />
+
+
+</RelativeLayout>
