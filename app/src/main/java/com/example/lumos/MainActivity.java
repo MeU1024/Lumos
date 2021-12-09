@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+
     }
 
     public void userPageClick(View v){

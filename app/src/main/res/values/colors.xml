@@ -156,6 +156,7 @@
     <color name="darknavy">#080829</color><!--色 -->
 <!--MyColor-->
     <color name="darkPurple">#373962</color><!--深紫色 -->
+    <color name="lightPurple">#E8DDFA</color><!--浅紫色 -->
 
 
 </resources>
