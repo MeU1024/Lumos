@@ -154,6 +154,8 @@
     <color name="darkblue">#0C0C39</color><!--暗蓝色 -->
     <color name="navy">#000080</color><!--海军色 -->
     <color name="darknavy">#080829</color><!--色 -->
+<!--MyColor-->
+    <color name="darkPurple">#373962</color><!--深紫色 -->
 
 
 </resources>

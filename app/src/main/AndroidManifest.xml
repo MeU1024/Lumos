@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lumos">
+
+        <activity
+            android:name=".ui.home.NewtaskActivity"
+            android:exported="true"
+            android:label="New Habit" />
         <activity
             android:name=".ui.info.register.RegisterActivity"
             android:exported="true"
-            android:label="@string/title_activity_register"/>
+            android:label="@string/title_activity_register" />
         <activity
             android:name=".ui.info.login.LoginActivity"
             android:exported="true"

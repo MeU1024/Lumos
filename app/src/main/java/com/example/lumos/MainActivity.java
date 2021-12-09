@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.lumos.ui.home.NewtaskActivity;
 import com.example.lumos.ui.info.register.RegisterActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
                 intent = new Intent(MainActivity.this, MainActivity.class);
                 MainActivity.this.finish();
+                break;
+            case R.id.home_newtask:
+                intent = new Intent(MainActivity.this, NewtaskActivity.class);
                 break;
         }
         if(intent != null)
