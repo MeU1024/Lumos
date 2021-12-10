@@ -12,13 +12,13 @@
         android:title="Collection"/>
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_review"
         android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications"/>
+        android:title="Review"/>
 
     <item
         android:id="@+id/navigation_info"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="?android:attr/actionModeFindDrawable"
         android:title="@string/title_info"/>
 
 </menu>
