@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lumos">
         <activity
+            android:name=".ui.info.HelpActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.collection.ShowActivity"
             android:exported="true" />
         <activity

@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.lumos.ui.collection.ShowActivity;
 import com.example.lumos.ui.home.NewtaskActivity;
+import com.example.lumos.ui.info.HelpActivity;
 import com.example.lumos.ui.info.register.RegisterActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -54,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
 //            case R.id.info_statistics:
 //                intent = new Intent(MainActivity.this, StatisticsActivity.class);
 //                break;
-//            case R.id.info_help:
-//                intent = new Intent(MainActivity.this, HelpActivity.class);
-//                break;
+            case R.id.info_help:
+                intent = new Intent(MainActivity.this, HelpActivity.class);
+                break;
 //            case R.id.info_share:
 //                intent = new Intent(MainActivity.this,ShareActivity.class);
 //                break;
