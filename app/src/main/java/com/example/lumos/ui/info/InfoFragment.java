@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -92,7 +94,42 @@ public class InfoFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
+        setIcons(root);
+
         return root;
+    }
+
+    private void setIcons(View root){
+        Bitmap bm_info_universe = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.universe);
+        UserBtnView info_universe = (UserBtnView)root.findViewById(R.id.info_universe);
+        info_universe.setBtn_icon(bm_info_universe);
+
+        Bitmap bm_info_help = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.help);
+        UserBtnView info_help = (UserBtnView)root.findViewById(R.id.info_help);
+        info_help.setBtn_icon(bm_info_help);
+
+        Bitmap bm_info_share = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.share);
+        UserBtnView info_share = (UserBtnView)root.findViewById(R.id.info_share);
+        info_share.setBtn_icon(bm_info_share);
+
+        Bitmap bm_info_about = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.about);
+        UserBtnView info_about = (UserBtnView)root.findViewById(R.id.info_about);
+        info_about.setBtn_icon(bm_info_about);
+
+        Bitmap bm_info_login = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.login);
+        UserBtnView info_login = (UserBtnView)root.findViewById(R.id.info_login);
+        info_login.setBtn_icon(bm_info_login);
+
+        Bitmap bm_info_register = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.register);
+        UserBtnView info_register = (UserBtnView)root.findViewById(R.id.info_register);
+        info_register.setBtn_icon(bm_info_register);
+
+        Bitmap bm_info_exit = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.exit);
+        UserBtnView info_exit = (UserBtnView)root.findViewById(R.id.info_exit);
+        info_exit.setBtn_icon(bm_info_exit);
+
+
+
     }
 
 

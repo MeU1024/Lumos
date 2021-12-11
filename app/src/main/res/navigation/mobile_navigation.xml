@@ -12,16 +12,16 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_collection"
-        android:name="com.example.lumos.ui.collection.CollectionFragment"
-        android:label="Collection"
-        tools:layout="@layout/fragment_collection" />
-
-    <fragment
         android:id="@+id/navigation_review"
         android:name="com.example.lumos.ui.review.ReviewFragment"
         android:label="Review"
         tools:layout="@layout/fragment_review" />
+
+    <fragment
+        android:id="@+id/navigation_collection"
+        android:name="com.example.lumos.ui.collection.CollectionFragment"
+        android:label="Collection"
+        tools:layout="@layout/fragment_collection" />
 
     <fragment
         android:id="@+id/navigation_info"
