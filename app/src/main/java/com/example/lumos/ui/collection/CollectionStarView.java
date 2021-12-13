@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -17,16 +18,19 @@ import java.io.File;
 
 public class CollectionStarView extends RelativeLayout {
     private TextView tv_title,tv_des;
+    private ProgressBar progress;
     private ImageView btn_icon;
     private String namespace = "http://schemas.android.com/apk/res/com.example.lumos";
     private String title,description;
     private String icon_path;
+
     public CollectionStarView(Context context, @Nullable AttributeSet attrs){
         super(context,attrs);
 
         View view = View.inflate(context, R.layout.component_collection_star,this);
         tv_title = (TextView) view.findViewById(R.id.cmnt_collection_star_name);
         tv_des = (TextView) view.findViewById(R.id.cmnt_collection_description);
+        progress = (ProgressBar) view.findViewById(R.id.progressBar);
 
         //title = attrs.getAttributeValue(namespace, "star_name");
         if (title != null) {
@@ -58,4 +62,15 @@ public class CollectionStarView extends RelativeLayout {
         description = des;
         tv_des.setText(description);
     }
+
+    public void setMax(int Max){
+
+        progress.setMax(Max);
+    }
+
+    public void setProgress(int pro){
+
+        progress.setProgress(pro);
+    }
+
 }

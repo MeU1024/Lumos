@@ -88,15 +88,14 @@ public class CollectionFragment extends Fragment {
             csv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             csv.setHabitName(p.getName());
             csv.setDescription(p.getDes());
-            //csv.setMax(p.getMax());
-            //csv.setProgress(p.getProgress());
+            csv.setMax(p.getMax());
+            csv.setProgress(p.getProgress());
 
 
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) csv.getLayoutParams();
             lp.setMargins(0, 80, 0, 0);
             csv.setLayoutParams(lp);
             ll.addView(csv);
-
 
 
         }
