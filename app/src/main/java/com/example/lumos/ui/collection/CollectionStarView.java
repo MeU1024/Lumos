@@ -9,28 +9,37 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.example.lumos.R;
 
 import java.io.File;
 
 public class CollectionStarView extends RelativeLayout {
-    private TextView tv_title;
+    private TextView tv_title,tv_des;
     private ImageView btn_icon;
     private String namespace = "http://schemas.android.com/apk/res/com.example.lumos";
-    private String title;
+    private String title,description;
     private String icon_path;
-    public CollectionStarView(Context context, AttributeSet attrs){
+    public CollectionStarView(Context context, @Nullable AttributeSet attrs){
         super(context,attrs);
 
         View view = View.inflate(context, R.layout.component_collection_star,this);
         tv_title = (TextView) view.findViewById(R.id.cmnt_collection_star_name);
-        title = attrs.getAttributeValue(namespace, "star_name");
+        tv_des = (TextView) view.findViewById(R.id.cmnt_collection_description);
+
+        //title = attrs.getAttributeValue(namespace, "star_name");
         if (title != null) {
             tv_title.setText(title);
         }
 
+        if (description != null) {
+            tv_des.setText(description);
+        }
+
+
         btn_icon = (ImageView)view.findViewById(R.id.cmnt_collection_star_icon);
-        icon_path = attrs.getAttributeValue(namespace,"star_icon");
+        //icon_path = attrs.getAttributeValue(namespace,"star_icon");
         if(icon_path != null){
             String real_path = "@drawable/"+icon_path;
             Uri uri = Uri.fromFile(new File(real_path));
@@ -40,5 +49,13 @@ public class CollectionStarView extends RelativeLayout {
     }
     public void setBtn_icon(Bitmap bm){
         btn_icon.setImageBitmap(bm);
+    }
+    public void setHabitName(String name){
+        title = name;
+        tv_title.setText(title);
+    }
+    public void setDescription(String des){
+        description = des;
+        tv_des.setText(description);
     }
 }

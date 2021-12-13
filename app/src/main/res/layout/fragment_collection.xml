@@ -28,22 +28,25 @@
 
     <ScrollView
         android:layout_width="0dp"
-        android:layout_height="580dp"
+        android:layout_height="540dp"
 
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
 
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="100dp"
         android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView">
 
         <LinearLayout
+            android:id="@+id/layout_collection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+            <!--
             <com.example.lumos.ui.collection.CollectionStarView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,24 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 lumos:star_name="Get Up Early" />
-
-            <com.example.lumos.ui.collection.CollectionStarView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                lumos:star_name="Go To Bed Early" />
-
-            <com.example.lumos.ui.collection.CollectionStarView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                lumos:star_name="fruit" />
-
-            <com.example.lumos.ui.collection.CollectionStarView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                lumos:star_name="fruit" />
+                -->
 
 
         </LinearLayout>
