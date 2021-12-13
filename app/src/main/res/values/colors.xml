@@ -157,6 +157,7 @@
 <!--MyColor-->
     <color name="darkPurple">#373962</color><!--深紫色 -->
     <color name="lightPurple">#E8DDFA</color><!--浅紫色 -->
+    <color name="bgPurple">#535A90</color><!--浅紫色 -->
 
 
 </resources>
