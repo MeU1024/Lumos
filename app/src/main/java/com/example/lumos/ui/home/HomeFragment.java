@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.lumos.DBOpenHelper;
 import com.example.lumos.Habit;
+import com.example.lumos.MainActivity;
 import com.example.lumos.R;
 import com.example.lumos.databinding.FragmentHomeBinding;
 import com.example.lumos.ui.collection.CollectionStarView;
@@ -90,6 +92,25 @@ public class HomeFragment extends Fragment {
             tsv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             tsv.setHabitName(p.getName());
             tsv.setStarIcon(p.getMax(),p.getProgress());
+            tsv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, tsv.getName(),Toast.LENGTH_SHORT).show();
+
+                    //更改星星的状态
+                    String loginUserName = null;
+                    loginUserName = getUserName();
+                    DBOpenHelper dbsqLiteOpenHelper = new DBOpenHelper(mContext, loginUserName+".db", null, 1);
+                    final SQLiteDatabase db = dbsqLiteOpenHelper.getWritableDatabase();
+
+                    db.execSQL("UPDATE habit SET lday = ? WHERE name = ? ",
+                            new String[]{getDateToday(),tsv.getName()});
+                    db.close();
+                    //tsv.setStarIcon(1,1);
+
+                }
+            });
+
 
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) tsv.getLayoutParams();
             lp.setMargins((int) (Math.random()*550), 100, 0, 0);
@@ -117,7 +138,7 @@ public class HomeFragment extends Fragment {
                 new String[]{getYesterday(),getDateToday()});
 
         //显示今日打卡
-        String sql_select_today_habit = "select * from habit where state != 1 or 2";
+        String sql_select_today_habit = "select * from habit where  state = 2 ";
         Cursor cursor_select_today_habit = db.rawQuery(sql_select_today_habit,null);
         //Cursor cursor_select_today_habit = db.query("habit", null, "state=0", null, null, null, null);
         while(cursor_select_today_habit.moveToNext()){

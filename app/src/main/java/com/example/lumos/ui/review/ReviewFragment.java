@@ -77,7 +77,7 @@ public class ReviewFragment extends Fragment {
 
                 //如果选的是今天，
                 if(choose_String.equals(getDateToday())){
-                    String sql_allhabit = "select count(*) from habit where state = 0";
+                    String sql_allhabit = "select count(*) from habit where state != 1 or state != 2";
                     Cursor cursor_allhabit = db.rawQuery(sql_allhabit, null);
                     cursor_allhabit.moveToFirst();
                     long allhabit_count = cursor_allhabit.getLong(0);

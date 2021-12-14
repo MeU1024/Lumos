@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -41,12 +42,15 @@ public class TodayStarView extends RelativeLayout{
             System.out.println(uri);
             btn_icon.setImageURI(uri);
         }
+        //setOnClickListener();
     }
     public void setBtn_icon(Bitmap bm){
         btn_icon.setImageBitmap(bm);
     }
     public void setHabitName(String name){
+
         tv_title.setText(name);
+        title = name;
     }
     public void setStarIcon(int max,int pro){
 
@@ -63,6 +67,9 @@ public class TodayStarView extends RelativeLayout{
         setBtn_icon(bm_home_star);
     }
 
+    public String getName(){
+        return title;
+    }
 
 
 }
