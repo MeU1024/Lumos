@@ -1,5 +1,6 @@
 package com.example.lumos;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -22,13 +23,14 @@ public class Habit {
     public int getMax() {
         return days;
     }
+    public int getState(){ return state;}
     public int getProgress(){
         Calendar c1=Calendar.getInstance();
         c1.setTime(sday);//把获取的入住时间年月日放入Calendar中
         Calendar c2=Calendar.getInstance();
         c2.setTime(lday);//把获取的退房时间年月日放入Calendar中
 
-        int progress = c2.get(Calendar.DAY_OF_YEAR) - c1.get(Calendar.DAY_OF_YEAR);
+        int progress = c2.get(Calendar.DAY_OF_YEAR) - c1.get(Calendar.DAY_OF_YEAR) + 1;
         return progress;
     }
 
@@ -52,6 +54,13 @@ public class Habit {
         this.state = state;
 
 
+    }
+
+    public String getLday(){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+
+        String str=sdf.format(this.lday);
+        return str;
     }
 
 }

@@ -90,6 +90,9 @@ public class CollectionFragment extends Fragment {
             csv.setDescription(p.getDes());
             csv.setMax(p.getMax());
             csv.setProgress(p.getProgress());
+            if(p.getState() == 1){
+                csv.setDone();
+            }
 
 
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) csv.getLayoutParams();
@@ -112,7 +115,7 @@ public class CollectionFragment extends Fragment {
         DBOpenHelper dbsqLiteOpenHelper = new DBOpenHelper(getActivity(), loginUserName+".db", null, 1);
         final SQLiteDatabase db = dbsqLiteOpenHelper.getWritableDatabase();
 
-        String sql_select_habit = "select * from habit ORDER BY state";
+        String sql_select_habit = "select * from habit ORDER BY state desc";
         Cursor cursor_select_habit = db.rawQuery(sql_select_habit, null);
         //cursor_select_habit.moveToFirst();
         while(cursor_select_habit.moveToNext()){

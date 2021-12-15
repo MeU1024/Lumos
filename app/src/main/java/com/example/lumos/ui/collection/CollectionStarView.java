@@ -2,6 +2,7 @@ package com.example.lumos.ui.collection;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
@@ -31,6 +32,7 @@ public class CollectionStarView extends RelativeLayout {
         tv_title = (TextView) view.findViewById(R.id.cmnt_collection_star_name);
         tv_des = (TextView) view.findViewById(R.id.cmnt_collection_description);
         progress = (ProgressBar) view.findViewById(R.id.progressBar);
+        btn_icon = (ImageView) view.findViewById(R.id.cmnt_collection_star_icon);
 
         //title = attrs.getAttributeValue(namespace, "star_name");
         if (title != null) {
@@ -71,6 +73,20 @@ public class CollectionStarView extends RelativeLayout {
     public void setProgress(int pro){
 
         progress.setProgress(pro);
+    }
+
+    public void setDisappear(){
+        Bitmap bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.bigg);
+        setStar_icon(bm_home_star);
+    }
+
+    public void setDone(){
+        Bitmap bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.medium);
+        setStar_icon(bm_home_star);
+    }
+
+    public void setStar_icon(Bitmap bm){
+        btn_icon.setImageBitmap(bm);
     }
 
 }

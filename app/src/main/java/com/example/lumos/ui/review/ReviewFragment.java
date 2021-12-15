@@ -59,7 +59,7 @@ public class ReviewFragment extends Fragment {
         CalendarView calendarView = getActivity().findViewById(R.id.calendarView);
         TextView tv_date = getActivity().findViewById(R.id.text_review_date);
 
-        Toast.makeText(mContext, getDateToday(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, getDateToday(),Toast.LENGTH_SHORT).show();
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -73,12 +73,12 @@ public class ReviewFragment extends Fragment {
                 final SQLiteDatabase db = dbsqLiteOpenHelper.getWritableDatabase();
                 String choose_String = year +"-"+ (month+1) +"-" +dayOfMonth;
                 String dateToday = getDateToday();
-                Toast.makeText(mContext, choose_String,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, choose_String,Toast.LENGTH_SHORT).show();
 
                 //如果选的是今天，
                 if(choose_String.equals(getDateToday())){
-                    String sql_allhabit = "select count(*) from habit where state != 1 or state != 2";
-                    Cursor cursor_allhabit = db.rawQuery(sql_allhabit, null);
+                    String sql_allhabit = "select count(*) from habit where state = 0 or lday = ?";
+                    Cursor cursor_allhabit = db.rawQuery(sql_allhabit, new String[]{dateToday.toString()});
                     cursor_allhabit.moveToFirst();
                     long allhabit_count = cursor_allhabit.getLong(0);
                     cursor_allhabit.close();
@@ -109,10 +109,11 @@ public class ReviewFragment extends Fragment {
                         Log.d("Debug", String.valueOf(msg));
                     }
 
+                    long progressper = 100 * done_count/allhabit_count;
                     if(allhabit_count == 0){
                         str_date = "No star needed to light up~";
                     }else{
-                        str_date = "You have lighted up " + done_count/allhabit_count + "%" + " stars on " + year + "." + (month+1) + "." + dayOfMonth + "!";
+                        str_date = "You have lighted up " + progressper + "%" + " stars on \n\n " + year + "." + (month+1) + "." + dayOfMonth + "!";
                     }
                     tv_date.setText(str_date);
 
@@ -129,7 +130,7 @@ public class ReviewFragment extends Fragment {
                         if(allhabit_someday == 0){
                             str_date = "No star needed to light up~";
                         }else{
-                            str_date = "You have lighted up " + done_someday/allhabit_someday + "%" + " stars on " + year + "." + (month+1) + "." + dayOfMonth + "!";
+                            str_date = "You have lighted up " + done_someday/allhabit_someday*100 + "%" + " stars on " + year + "." + (month+1) + "." + dayOfMonth + "!";
                         }
 
                         tv_date.setText(str_date);
@@ -139,7 +140,6 @@ public class ReviewFragment extends Fragment {
                     }
 
                 }
-
 
                 db.close();
 

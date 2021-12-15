@@ -9,12 +9,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.example.lumos.R;
-import com.example.lumos.ui.info.UserBtnView;
 
 import java.io.File;
 
@@ -24,6 +22,8 @@ public class TodayStarView extends RelativeLayout{
     private String namespace = "http://schemas.android.com/apk/res/com.example.lumos";
     private String title;
     private String icon_path;
+    private double percent;
+
     public TodayStarView(Context context, @Nullable AttributeSet attrs){
         super(context,attrs);
 
@@ -52,17 +52,33 @@ public class TodayStarView extends RelativeLayout{
         tv_title.setText(name);
         title = name;
     }
-    public void setStarIcon(int max,int pro){
+    public void setStarIcon(int max,int pro,int lighted){
 
         Bitmap bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.stars);
 
-        double percent = pro / max;
+        percent = pro / max;
+
         if(percent < 0.3){
-            bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.smalls);
+            if(lighted == 1){
+                bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.smalls);
+            }else{
+                bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.meduimg);
+            }
+
         }else if (percent <0.7){
-            bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.mediums);
+            if(lighted == 1){
+                bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.smallw);
+            }else{
+                bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.samllg);
+            }
+
         }else{
-            bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.bigs);
+            if(lighted ==1){
+                bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.mediums);
+            }else{
+                bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.bigg);
+            }
+
         }
         setBtn_icon(bm_home_star);
     }
@@ -70,6 +86,22 @@ public class TodayStarView extends RelativeLayout{
     public String getName(){
         return title;
     }
+
+    public void setLightedStarIcon(){
+
+        Bitmap bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.smalll);
+
+        if(percent < 0.3){
+            bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.smalls);
+        }else if (percent <0.7){
+            bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.smallw);
+        }else{
+            bm_home_star = (Bitmap) BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.mediums);
+        }
+
+        setBtn_icon(bm_home_star);
+    }
+
 
 
 }

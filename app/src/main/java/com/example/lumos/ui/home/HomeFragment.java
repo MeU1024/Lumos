@@ -63,6 +63,7 @@ public class HomeFragment extends Fragment {
 //    }
     private HomeViewModel homeViewModel;
     private List<Habit> TodayHabitList;
+    private List<String> DoneHabitList;
     private Context mContext;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -88,14 +89,24 @@ public class HomeFragment extends Fragment {
         //把数据显示至屏幕
         for (Habit p : TodayHabitList) {
 
+
+
             TodayStarView tsv = new TodayStarView(mContext,null);
             tsv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             tsv.setHabitName(p.getName());
-            tsv.setStarIcon(p.getMax(),p.getProgress());
+            if(p.getLday().equals(getDateToday())){
+                tsv.setStarIcon(p.getMax(),p.getProgress(),1);
+            }
+            else{
+                tsv.setStarIcon(p.getMax(),p.getProgress(),0);
+            }
+
+            //Toast.makeText(mContext, p.getLday(),Toast.LENGTH_SHORT).show();
+
             tsv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, tsv.getName(),Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(mContext, tsv.getName(),Toast.LENGTH_SHORT).show();
 
                     //更改星星的状态
                     String loginUserName = null;
@@ -106,14 +117,14 @@ public class HomeFragment extends Fragment {
                     db.execSQL("UPDATE habit SET lday = ? WHERE name = ? ",
                             new String[]{getDateToday(),tsv.getName()});
                     db.close();
-                    //tsv.setStarIcon(1,1);
+                    tsv.setStarIcon(p.getMax(),p.getProgress(),1);
 
                 }
             });
 
 
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) tsv.getLayoutParams();
-            lp.setMargins((int) (Math.random()*550), 100, 0, 0);
+            lp.setMargins((int) (Math.random()*550), 50, 0, 0);
             tsv.setLayoutParams(lp);
             ll.addView(tsv);
 
@@ -126,44 +137,84 @@ public class HomeFragment extends Fragment {
     private void getTodayHabit() throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         TodayHabitList = new ArrayList<Habit>();
+        DoneHabitList = new ArrayList<String>();
+        TextView tv = getActivity().findViewById(R.id.text_no_star);
+        int flag = 0;
 
-        String loginUserName = null;
-        loginUserName = getUserName();
-        DBOpenHelper dbsqLiteOpenHelper = new DBOpenHelper(getActivity(), loginUserName+".db", null, 1);
-        final SQLiteDatabase db = dbsqLiteOpenHelper.getWritableDatabase();
-        //
+        SharedPreferences sp= getActivity().getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
+        if(sp.getBoolean("isLogin" ,false)==false){
+            Toast.makeText(mContext, "Please Login First!",Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+            String loginUserName = null;
+            loginUserName = getUserName();
+            DBOpenHelper dbsqLiteOpenHelper = new DBOpenHelper(getActivity(), loginUserName+".db", null, 1);
+            final SQLiteDatabase db = dbsqLiteOpenHelper.getWritableDatabase();
+            //
+            //db.update("habit",,)
+            //更新任务状态
+            db.execSQL("UPDATE habit SET state = 2 WHERE lday != ? AND lday != ? AND state = 0 ",
+                    new String[]{getYesterday(),getDateToday()});
 
-        //更新任务状态
-        db.execSQL("UPDATE habit SET state = 2 WHERE lday != ? or ? AND state != 1",
-                new String[]{getYesterday(),getDateToday()});
+            //显示今日打卡
+            String sql_select_today_habit = "select * from habit where state = 0.0 OR lday = ?";
+            Cursor cursor_select_today_habit = db.rawQuery(sql_select_today_habit,new String[]{getDateToday()});
+            //Cursor cursor_select_today_habit = db.query("habit", null, "state=0", null, null, null, null);
+            while(cursor_select_today_habit.moveToNext()){
+                //Integer id = cursor_select_today_habit.getInt(cursor_select_today_habit.getColumnIndex("rowid"));
+                String name = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("name"));
+                String des = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("des"));
+                Integer days = cursor_select_today_habit.getInt(cursor_select_today_habit.getColumnIndex("days"));
+                Integer state = cursor_select_today_habit.getInt(cursor_select_today_habit.getColumnIndex("state"));
+                String str_cday = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("cday"));
+                String str_lday = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("lday"));
+                String str_sday = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("sday"));
 
-        //显示今日打卡
-        String sql_select_today_habit = "select * from habit where  state = 2 ";
-        Cursor cursor_select_today_habit = db.rawQuery(sql_select_today_habit,null);
-        //Cursor cursor_select_today_habit = db.query("habit", null, "state=0", null, null, null, null);
-        while(cursor_select_today_habit.moveToNext()){
+                Date cday = simpleDateFormat.parse(str_cday);
+                Date lday = simpleDateFormat.parse(str_lday);
+                Date sday = simpleDateFormat.parse(str_sday);
 
-            String name = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("name"));
-            String des = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("des"));
-            Integer days = cursor_select_today_habit.getInt(cursor_select_today_habit.getColumnIndex("days"));
-            Integer state = cursor_select_today_habit.getInt(cursor_select_today_habit.getColumnIndex("state"));
-            String str_cday = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("cday"));
-            String str_lday = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("lday"));
-            String str_sday = cursor_select_today_habit.getString(cursor_select_today_habit.getColumnIndex("sday"));
+                Habit p = new Habit(name,days,des,cday,lday,sday,state);
+                TodayHabitList.add(p);
+                flag = 1;
 
-            Date cday = simpleDateFormat.parse(str_cday);
-            Date lday = simpleDateFormat.parse(str_lday);
-            Date sday = simpleDateFormat.parse(str_sday);
+                Calendar c1=Calendar.getInstance();
+                c1.setTime(sday);//把获取的入住时间年月日放入Calendar中
+                Calendar c2=Calendar.getInstance();
+                c2.setTime(lday);//把获取的退房时间年月日放入Calendar中
 
-            Habit p = new Habit(name,days,des,cday,lday,sday,state);
-            TodayHabitList.add(p);
+                int progress = c2.get(Calendar.DAY_OF_YEAR) - c1.get(Calendar.DAY_OF_YEAR) + 1;
+                if(progress == days){
+                    DoneHabitList.add(name);
+                    //Toast.makeText(mContext,  name,Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            cursor_select_today_habit.close();
+
+            for(String d :DoneHabitList){
+                db.execSQL("UPDATE habit SET state = 1 WHERE name =  ? ",
+                        new String[]{d});
+
+            }
+            db.close();
+            tv.setVisibility(View.VISIBLE);
+
+
         }
+        //Toast.makeText(mContext, TodayHabitList.size(),Toast.LENGTH_SHORT).show();
 
-        cursor_select_today_habit.close();
-        db.close();
+        if(flag == 0){
+            //Toast.makeText(mContext, TodayHabitList.size(),Toast.LENGTH_SHORT).show();
+            tv.setVisibility(View.VISIBLE);
+        }
+        else{
+            tv.setVisibility(View.INVISIBLE);
+        }
     }
 
     private String getUserName(){
+
         String loginUserName = null;
         SharedPreferences sp= getActivity().getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
         loginUserName = sp.getString("loginUserName" , null);

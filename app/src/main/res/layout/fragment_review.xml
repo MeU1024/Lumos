@@ -44,7 +44,7 @@
         android:layout_marginEnd="40dp"
         android:textAlignment="center"
         android:fontFamily="serif"
-        android:text="It is"
+        android:text="Tap Date to Check your Progress"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
     public void userPageClick(View v){
         Intent intent = null;
         switch (v.getId()){
-//            case R.id.info_anchievement:
-//                intent = new Intent(MainActivity.this, AnchievementActivity.class);
-//                break;
+            case R.id.info_universe:
+                intent = new Intent(MainActivity.this, UniverseActivity.class);
+                break;
 //            case R.id.info_statistics:
 //                intent = new Intent(MainActivity.this, StatisticsActivity.class);
 //                break;
