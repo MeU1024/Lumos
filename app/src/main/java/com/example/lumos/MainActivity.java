@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
 
+
     }
 
     public void userPageClick(View v){

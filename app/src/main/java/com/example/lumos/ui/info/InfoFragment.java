@@ -55,6 +55,8 @@ public class InfoFragment extends Fragment {
 //    }
 
     private InfoViewModel infoViewModel;
+    private TextView user_nickname_tv;
+    private String Username;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -67,6 +69,8 @@ public class InfoFragment extends Fragment {
         SharedPreferences sp=getActivity().getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
         LoginStatus = sp.getBoolean("isLogin" , false);
 
+        user_nickname_tv = root.findViewById(R.id.user_nickname);
+
         if (LoginStatus) {
             //已登录
             View loginView = root.findViewById(R.id.user_cardview3);
@@ -74,6 +78,7 @@ public class InfoFragment extends Fragment {
 
             View exitView = root.findViewById(R.id.user_cardview4);
             exitView.setVisibility(View.VISIBLE);
+            user_nickname_tv.setText(getUserName());
 
         }
         else{
@@ -132,6 +137,13 @@ public class InfoFragment extends Fragment {
 
     }
 
+    private String getUserName(){
+        String loginUserName = null;
+        SharedPreferences sp= getActivity().getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
+        loginUserName = sp.getString("loginUserName" , null);
+        return loginUserName;
+
+    }
 
 
 

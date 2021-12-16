@@ -17,6 +17,7 @@
         android:title="Collection"/>
 
 
+
     <item
         android:id="@+id/navigation_info"
         android:icon="?android:attr/actionModeFindDrawable"

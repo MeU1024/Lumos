@@ -121,6 +121,7 @@ public class ReviewFragment extends Fragment {
                     //不是今天
                     Cursor cursor_someday =  db.rawQuery("SELECT * FROM record WHERE today = ?",
                             new String[]{choose_String.toString()});
+
                     if(cursor_someday.moveToFirst())
                     {
                         allhabit_someday = cursor_someday.getInt(cursor_someday.getColumnIndex("allhabit"));
@@ -130,7 +131,8 @@ public class ReviewFragment extends Fragment {
                         if(allhabit_someday == 0){
                             str_date = "No star needed to light up~";
                         }else{
-                            str_date = "You have lighted up " + done_someday/allhabit_someday*100 + "%" + " stars on " + year + "." + (month+1) + "." + dayOfMonth + "!";
+
+                            str_date = "You have lighted up " + 100*done_someday/allhabit_someday + "%" + " stars on \n\n" + year + "." + (month+1) + "." + dayOfMonth + "!";
                         }
 
                         tv_date.setText(str_date);

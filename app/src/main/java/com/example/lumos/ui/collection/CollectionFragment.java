@@ -93,6 +93,9 @@ public class CollectionFragment extends Fragment {
             if(p.getState() == 1){
                 csv.setDone();
             }
+            else if(p.getState()==2){
+                csv.setDisappear();
+            }
 
 
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) csv.getLayoutParams();
