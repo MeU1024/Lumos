@@ -77,11 +77,7 @@ public class CollectionFragment extends Fragment {
         for (Habit p : HabitList) {
             //1.集合中每有一条元素，就new一个textView
             TextView tv = new TextView(mContext);
-//            //2.把人物的信息设置为文本框的内容
-//            tv.setText(p.getName());
-//            tv.setTextSize(18);
-//            //3.把textView设置为线性布局的子节点
-//            ll.addView(tv);
+
 
 
             CollectionStarView csv = new CollectionStarView(mContext,null);
@@ -90,6 +86,7 @@ public class CollectionFragment extends Fragment {
             csv.setDescription(p.getDes());
             csv.setMax(p.getMax());
             csv.setProgress(p.getProgress());
+            //根据状态更改icon
             if(p.getState() == 1){
                 csv.setDone();
             }

@@ -34,7 +34,7 @@
         android:layout_marginTop="210dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="serif"
-        android:text="Lumos is a charm in Harry Potter's world,&#x000A;&#x000A; which can bring light in the dark.&#x000A;&#x000A; It can also bring light in real world&#x000A;&#x000A; by helping us &#x000A;&#x000A;developing good habits in our life."
+        android:text="Lumos is a charm in Harry Potter's world,&#x000A;&#x000A; which can bring light in the dark.&#x000A;&#x000A; It can also bring light in real world&#x000A;&#x000A; by helping us &#x000A;&#x000A;develop good habits in our life."
         android:textAlignment="center"
         android:textColor="@color/white"
 

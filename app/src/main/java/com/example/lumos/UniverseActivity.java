@@ -66,10 +66,30 @@ public class UniverseActivity extends AppCompatActivity {
         DBOpenHelper dbsqLiteOpenHelper = new DBOpenHelper(UniverseActivity.this, loginUserName+".db", null, 1);
         final SQLiteDatabase db = dbsqLiteOpenHelper.getWritableDatabase();
 
-        String sql_done = "select count(*) from record ";
+//        String sql_done = "select count(*) from record ";
+//        Cursor cursor_done = db.rawQuery(sql_done, null);
+//        cursor_done.moveToFirst();
+//        long done_count = cursor_done.getLong(0);
+//        cursor_done.close();
+        int done_count = 0;
+        String sql_done = "select * from record WHERE rowid = 1 ";
         Cursor cursor_done = db.rawQuery(sql_done, null);
-        cursor_done.moveToFirst();
-        long done_count = cursor_done.getLong(0);
+        while(cursor_done.moveToNext()){
+
+            String str_today = cursor_done.getString(cursor_done.getColumnIndex("today"));
+
+            Date first_day = simpleDateFormat.parse(str_today);
+            Date today_date = simpleDateFormat.parse(getDateToday());
+
+            Calendar c1=Calendar.getInstance();
+            c1.setTime(first_day);//把获取的入住时间年月日放入Calendar中
+            Calendar c2=Calendar.getInstance();
+            c2.setTime(today_date);//把获取的退房时间年月日放入Calendar中
+
+            done_count = c2.get(Calendar.DAY_OF_YEAR) - c1.get(Calendar.DAY_OF_YEAR) + 1;
+
+        }
+
         cursor_done.close();
 
         useday.setText("You have used Lumos for "+ Long.toString(done_count)+" days!");
@@ -113,7 +133,7 @@ public class UniverseActivity extends AppCompatActivity {
 
         cursor_max_habit.close();
 
-        max_habit_tv.setText("The star existed for longest time  is " + max_habit_name +" , lasting for "+max_count +" days in total." );
+        max_habit_tv.setText("The star existing for longest time is '" + max_habit_name +"' , lasting for "+max_count +" days in total." );
 
         db.close();
 
@@ -165,5 +185,17 @@ public class UniverseActivity extends AppCompatActivity {
         loginUserName = sp.getString("loginUserName" , null);
         return loginUserName;
 
+    }
+
+    private String getDateToday(){
+
+        Calendar calendar = Calendar.getInstance();
+        //获取系统的日期
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH)+1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        String DateToday = year+"-"+month+"-"+day;
+        return DateToday;
     }
 }

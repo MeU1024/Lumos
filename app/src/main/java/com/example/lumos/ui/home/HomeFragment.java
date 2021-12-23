@@ -94,6 +94,7 @@ public class HomeFragment extends Fragment {
             TodayStarView tsv = new TodayStarView(mContext,null);
             tsv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             tsv.setHabitName(p.getName());
+            //是否点亮
             if(p.getLday().equals(getDateToday())){
                 tsv.setStarIcon(p.getMax(),p.getProgress(),1);
             }
